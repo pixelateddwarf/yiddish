@@ -1,0 +1,11 @@
+<h1>Enter Your Quote Details</h1>
+
+<%= simple_form_for @proverb do |f| %> 
+
+<%= f.input :proverb %> 
+<%= f.input :yiddish %> 
+<%= f.input :transliteration %> 
+<%= f.input :source %> 
+<br />
+  <%= f.submit 'Create', :class => 'btn btn-danger' %>
+<% end %>

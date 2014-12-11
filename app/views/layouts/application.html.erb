@@ -1,14 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Yiddish</title>
+  <title>Yiddish Proverbs</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Header Begin ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <header>
+  <div class="col-xs-3">
+      <%= link_to root_path do %>
+     <div class="circle">
+        <br />
+        Yiddish
+        <br />
+       <span style="font-size: 30px;">✡</span>
+        <br />
+        Proverbs
+      </div>
+      <% end %>
+    </div>
+  <div class="col-xs-4 slogan"> 
+      Splurting out Yiddish Proverbs since 5767 
+    </div>
+    <div class="col-xs-5 links">
+       <%= link_to 'Contribute', new_proverb_path %>
+    </div>
+  </header>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Header End ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<br class="clear" />
 
-<%= yield %>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Body Begin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
+ <div class="main_content">
+ <div class="container">
+
+    <% if flash[:error].present? %>
+      <div class="col-xs-10 col-xs-offset-1 alert alert-danger">
+        <%= flash[:error].html_safe %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div> 
+  </div> 
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Body End  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Footer Begin ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+  <div class="footer"> 
+    <div class="container"> 
+      <div class="col-xs-6">
+       <%= link_to "Click for another Yiddish Proverb >>", root_path, :class => 'next-quote' %>
+      </div>
+      <div class="col-xs-6 footer-blurb">
+        Proudly coded in Valdosta GA by <a href="http://kill-nine.com">PixelatedDwarf</a><br />
+        Want to build your own Splurty Web App - <a href="http://thefirehoseproject.com">Learn how to code here</a>
+      </div>
+    </div> 
+  </div>
+<!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Footer End ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 </body>
 </html>

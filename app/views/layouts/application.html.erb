@@ -26,10 +26,39 @@
       Splurting out Yiddish Proverbs since 5767 
     </div>
     <div class="col-xs-5 links">
-       <%= link_to 'Contribute', new_proverb_path %>
+        <%= link_to 'Contribute', '#', :data => {:toggle => 'modal', :target => '#myModal'} %>
     </div>
   </header>
 <!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Header End ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Contribute Your Yiddish Proverb</h4>
+        </div>
+        <div class="modal-body">
+          <%= simple_form_for Proverb.new do |f| %> 
+
+            <%= f.input :proverb, :label => "What is the proverb you want to add?", :placeholder => "A cat is more pious than he is." %> 
+            <%= f.input :yiddish, :label => "This is in Yiddish", :placeholder => "יידיש" %> 
+            <%= f.input :transliteration, :label => "Transliteration", :placeholder => "Di kats iz shoyn frimer far im." %> 
+            <%= f.input :source, :label => "Source of the proverb", :placeholder => "Stutchkoff" %> 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close Window</button>
+          <%= f.submit 'Add Yiddish Proverb', :class => 'btn btn-danger' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+
 <br class="clear" />
 
 <!-- ~~~~~~~~~~~~~~~~~~~~~~ Page Body Begin ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -37,6 +66,7 @@
  <div class="main_content">
  <div class="container">
 
+  <!-- Error Message if things go wrong -->
     <% if flash[:error].present? %>
       <div class="col-xs-10 col-xs-offset-1 alert alert-danger">
         <%= flash[:error].html_safe %>

@@ -4,12 +4,8 @@ class ProverbsController < ApplicationController
      @proverb = Proverb.order("RANDOM()").first 
   end
 
-  def new
-     @proverb = Proverb.new
-  end
-
   def create
-    Proverb.create(proverb_params)
+    @proverb = Proverb.create(proverb_params)
     if @proverb.invalid?
       flash[:error] = '<strong>Could not save</strong> the data you entered is invalid.'
     end

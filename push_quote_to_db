@@ -1,0 +1,2 @@
+Quote.create(:proverb => 'Words should be weighed, not counted.', :yiddish => 'ווערטער זאָל מען װעגן און ניט צײלן.', :transliteration => 'Verter zol men vegn un nit tseyln.', :source => 'Bernstein, Jüdische Sprichwörter und Redensarten.')
+
